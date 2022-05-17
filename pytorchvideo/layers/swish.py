@@ -10,7 +10,8 @@ class Swish(nn.Module):
     """
 
     def forward(self, x):
-        return SwishFunction.apply(x)
+        # return SwishFunction.apply(x)
+        return x * torch.sigmoid(x)
 
 
 class SwishFunction(torch.autograd.Function):
