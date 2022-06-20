@@ -38,7 +38,7 @@ class Net(nn.Module):
         self.blocks = blocks
         init_net_weights(self)
 
-    @torch.jit.script_method
+    # @torch.jit.script_method                     # Need to comment this to trace model successfully
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         for idx in range(len(self.blocks)):
             x = self.blocks[idx](x)
